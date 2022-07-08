@@ -1,5 +1,5 @@
 <?php
-const ALLOW_RAW_OUTPUT = true;
+const ALLOW_RAW_OUTPUT = false;
 // 是否开启 ?raw 选项，可能会消耗服务器较多流量
 
 function has_query($query)
