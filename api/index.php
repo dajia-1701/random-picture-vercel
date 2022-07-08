@@ -41,7 +41,7 @@ if (has_query('json')) {
         header('HTTP/1.1 403 Forbidden');
         exit();
     }
-    header('Content-Type: image/png');
+    header('Content-Type: image/webp');
     echo file_get_contents($img_url);
 } else {
     header('Referrer-Policy: no-referrer');
