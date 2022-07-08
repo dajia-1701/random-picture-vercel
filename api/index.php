@@ -30,7 +30,7 @@ if (strlen($id) > 0 && is_numeric($id)) {
     $id = array_rand($imgs_array);
 }
 
-$img_url = '//images.weserv.nl/?url=' . $imgs_array[$id] . '&w=960&h=960&fit=cover&a=attention&output=jpg&il';
+$img_url = 'https://images.weserv.nl/?url=' . $imgs_array[$id] . '&w=480&fit=cover&a=entropy';
 
 if (has_query('json')) {
     header('Access-Control-Allow-Origin: *');
