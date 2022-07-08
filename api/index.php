@@ -30,21 +30,22 @@ if (strlen($id) > 0 && is_numeric($id)) {
     $id = array_rand($imgs_array);
 }
 
+$img_url = '//images.weserv.nl/?url=' + $imgs_array[$id] + '&w=480&fit=cover&a=attention';
 
 if (has_query('json')) {
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
-    echo json_encode(array('id' => $id, 'url' => $imgs_array[$id]));
+    echo json_encode(array('id' => $id, 'url' => $img_url));
 } else if (has_query('raw')) {
     if (!ALLOW_RAW_OUTPUT) {
         header('HTTP/1.1 403 Forbidden');
         exit();
     }
     header('Content-Type: image/png');
-    echo file_get_contents($imgs_array[$id]);
+    echo file_get_contents($img_url);
 } else {
     header('Referrer-Policy: no-referrer');
-    header('Location: ' . $imgs_array[$id]);
+    header('Location: ' . $img_url);
 }
 
 exit();
